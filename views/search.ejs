@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<head><link rel="stylesheet" href="/style.css" />
+
+    <style>
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            height: 148px; /* Ensure header height matches banner height */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            position: relative;
+            z-index: 2; /* Keeps the text above the banner */
+            padding-top: 50px; /* Adjust padding to vertically center the text */
+        }
+
+        @keyframes bannerAnimation {
+            0% { background-image: url('/images/DMV6.png'); }
+            50% { background-image: url('/images/DMV6.5.png'); }
+            100% { background-image: url('/images/DMV6.png'); }
+        }
+
+        .banner {
+            width: 760px;
+            height: 148px;
+            background-size: cover;
+            animation: bannerAnimation 2s infinite;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+    </style>
+    </head>
+<header><div class="banner"></div></header>
+<body>
+<form action="/search" method="POST">
+    <div>
+        <label for="vin_number">VIN Number:</label>
+        <input type="text" id="vin_number" name="vin_number">
+    </div>
+    <div>
+        <label for="licence_number">Licence Number:</label>
+        <input type="text" id="licence_number" name="licence_number">
+    </div>
+    <div>
+        <label for="registration_id">Registration ID:</label>
+        <input type="text" id="registration_id" name="registration_id">
+    </div>
+    <div>
+        <label for="source">Search in:</label>
+        <select id="source" name="source">
+            <option value="postgres">Postgres</option>
+            <option value="mongo">Mongo</option>
+            <option value="both">Both</option>
+        </select>
+    </div>
+    <button type="submit">Search</button>
+</form>
+<a href="/">Back to Main</a>
+</body>
+
